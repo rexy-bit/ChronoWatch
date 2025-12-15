@@ -1,1 +1,23 @@
 @import "tailwindcss";
+
+
+*{
+    box-sizing: border-box;
+}
+
+html{
+
+    scroll-behavior: smooth;
+}
+
+body{
+
+    font-family: roboto, arial;
+    padding-top: 55px;
+}
+
+@layer components{
+    .linkNav{
+        @apply text-[15px]
+    }
+}
