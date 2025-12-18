@@ -20,7 +20,7 @@ const Header = () => {
 
     return(
 
-        <header className="flex flex-row justify-between items-center h-[55px] bg-gray-200 top-0 fixed w-full px-5">
+        <header className="flex flex-row justify-between items-center h-[55px] bg-gray-200 top-0 fixed w-full px-5 shadow shadow-xl">
            <h1 className="text-[1.4em] font-black text-gray-800 max-[545px]:text-[1.2em]"><Link to="/"><i className="fa-solid fa-clock"></i> ChronoWatch</Link></h1>
 
            <div className="hidden max-[450px]:block text-[2em] font-black cursor-pointer transition-opacity duration-200 hover:opacity-70 active:opacity-50" onClick={()=>{setShowNav(prev => !prev)}} >&#9776;</div>

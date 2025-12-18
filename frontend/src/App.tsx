@@ -3,6 +3,8 @@ import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import Home from './Pages/Home'
 import Header from './Components/HomeComponents/Header'
+import Profile from './Pages/Profile'
+import { AuthProvider } from './Contexts/AuthContexts'
 
 function App() {
   
@@ -11,7 +13,9 @@ function App() {
 
   return(
     
+    <AuthProvider>
      <Routes>
+      
 
           
         <Route path='/' element={
@@ -20,7 +24,18 @@ function App() {
           <Home/>
           </>
         }/>
+
+        <Route path='/profile' element={
+          <>
+            <Header/>
+            <Profile/>
+          </>
+        }/>
+
+        
      </Routes>
+
+     </AuthProvider>
   )
 }
 

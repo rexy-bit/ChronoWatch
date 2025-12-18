@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 
-import { ACCESS_TOKEN_SECRET, REFRESH_TOKEN_EXPIRATION, REFRESH_TOKEN_SECRET, ACCESS_TOKEN_EXPIRATION } from '../config/env.js'
+import { ACCESS_TOKEN_SECRET, REFRESH_TOKEN_EXPIRATION, REFRESH_TOKEN_SECRET, ACCESS_TOKEN_EXPIRATION ,NODE_ENV} from '../config/env.js'
 import mongoose from 'mongoose';
 import User from '../models/user.model.js';
 
