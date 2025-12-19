@@ -1,5 +1,5 @@
 import  React, { memo, useEffect } from "react"
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 
 const Header = () => {
@@ -18,6 +18,9 @@ const Header = () => {
     }, [showNav]);
 
 
+    const location = useLocation();
+
+
     return(
 
         <header className="flex flex-row justify-between items-center h-[55px] bg-gray-200 top-0 fixed w-full px-5 shadow shadow-xl">
@@ -26,11 +29,15 @@ const Header = () => {
            <div className="hidden max-[450px]:block text-[2em] font-black cursor-pointer transition-opacity duration-200 hover:opacity-70 active:opacity-50" onClick={()=>{setShowNav(prev => !prev)}} >&#9776;</div>
 
            <nav className="flex flex-row justify-center items-center gap-5 max-[545px]:gap-3 max-[450px]:hidden">
-               <Link to='/' className="linkNav">Home</Link>
+               <Link to='/' className="linkNav" style={{fontWeight : location.pathname === "/" ? "900" : "400",
+                borderBottom : location.pathname === "/" ? "2px solid black" : "none"
+               }}>Home</Link>
                <Link to="/store" className="linkNav">Store</Link>
                <Link to="/cart" className="linkNav">Cart</Link>
                <Link to="/orders" className="linkNav">Orders</Link>
-               <Link to="/profile" className="linkNav"><i className="fa-solid fa-user text-[1.2em]"></i></Link>
+               <Link to="/profile" className="linkNav" style={{fontWeight : location.pathname === "/profile" ? "900" : "400",
+                borderBottom : location.pathname === "/profile" ? "2px solid black" : "none"
+               }}><i className="fa-solid fa-user text-[1.2em] py-1" ></i></Link>
            </nav>
 
             {

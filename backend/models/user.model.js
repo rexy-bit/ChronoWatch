@@ -28,6 +28,31 @@ const userSchema = new mongoose.Schema({
         type : String,
         minLength : 6,
         required : [true, "password is required"],
+    },
+    cart : {
+        items : [{
+        itemId : {type : mongoose.Schema.Types.ObjectId, ref : "Item", required : true},
+        quantity : {type : Number, default : 1}
+    }],
+      deliveryOption : {
+        id : {
+            type : String,
+            default : "Standard"
+        },
+        name : {
+            type : String,
+            default : "Free Shipping"
+        },
+        delayDays : {
+            type : Number,
+            default : 5,
+            enum : [5,2,1]
+        },
+        price : {
+            type : Number,
+            default : 0
+        }
+      }
     }
 }, {timestamps : true});
 

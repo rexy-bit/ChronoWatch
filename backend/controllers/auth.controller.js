@@ -109,7 +109,8 @@ export const signUp = async(req , res, next) => {
             _id : newUsers[0]._id,
             name : newUsers[0].name,
             email : newUsers[0].email,
-            role : newUsers[0].role
+            role : newUsers[0].role,
+            cart : newUsers[0].cart
         };
 
         res.status(201).json({
@@ -179,7 +180,8 @@ export const signIn = async(req, res, next) => {
             _id : user._id,
             name : user.name,
             email : user.email,
-            role : user.role
+            role : user.role,
+            cart : user.cart
         };
 
         res.status(200).json({
@@ -260,7 +262,8 @@ export const refreshTokenFunction = async(req, res, next) => {
                 _id : user._id,
                 name : user.name,
                 email : user.email,
-                role : user.role
+                role : user.role,
+                cart : user.cart
             }
         });
     }catch(err){

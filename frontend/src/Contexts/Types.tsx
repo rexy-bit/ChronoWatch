@@ -8,4 +8,26 @@ export interface User{
     role : string;
     createdAt : string;
     password? : string;
+    cart : MongooseCartType;
+}
+
+
+export interface CartSchema{
+    itemId : string;
+    quantity : number;
+
+}
+
+export interface DeliveryOption{
+
+    id : string;
+    name : string;
+    delayDays : number;
+    price : number;
+
+}
+
+export interface MongooseCartType{
+    items : CartSchema[];
+    deliveryOption : DeliveryOption;
 }

@@ -1,4 +1,4 @@
-import  { memo, useState } from "react";
+import  { memo, useEffect, useState } from "react";
 import { useAuthContext } from "../Contexts/AuthContexts";
 import SignIn from "../Components/ProfileComponents/SignIn";
 import SignUp from "../Components/ProfileComponents/SignUp";
@@ -6,20 +6,39 @@ import SignUp from "../Components/ProfileComponents/SignUp";
 const Profile = () => {
 
 
-    const {signIn, signUp, signOut, currentUser} = useAuthContext();
+    const {signOut, currentUser} = useAuthContext();
 
-    const [sign, setSign] = useState<Boolean>(true)
+    const [sign, setSign] = useState<Boolean>(()=>{
+
+      const saved = localStorage.getItem("sign");
+
+      return saved ? JSON.parse(saved) : true;
+
+    });
+
+    useEffect(()=>{
+      localStorage.setItem("sign", JSON.stringify(sign));
+    }, [sign]);
+
 
     return (
         <section className="flex flex-col  items-center min-h-screen">
 
            {currentUser ? 
            <>
-
+           
              <h1 className="text-[1.2em] mt-10">Welcom Back <strong>{currentUser.name}</strong></h1>
-             <div>
-                 
+
+             <div className="flex flex-col justify-center items-center mt-5 text-gray-900 border border-gray-800 p-5 rounded-lg">
+                <div className="flex flex-col gap-1">
+                <p>Email : {currentUser.email}</p>
+                <p>Name : <strong>{currentUser.name}</strong></p>
+                <p>Cart : {currentUser.cart.items.length}</p>
+                </div>
+
+                <button onClick={signOut} className="bg-gray-800 text-white font-bold w-[100px] mt-5 h-[35px] rounded-[10px] cursor-pointer transition-opacity hover:opacity-70 active:opacity-50 duration-200">Sign Out</button>
              </div>
+             
 
              </>
               : 
@@ -59,3 +78,4 @@ const Profile = () => {
 }
 
 export default memo(Profile);
+

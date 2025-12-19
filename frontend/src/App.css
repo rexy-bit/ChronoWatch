@@ -18,6 +18,6 @@ body{
 
 @layer components{
     .linkNav{
-        @apply text-[15px]
+        @apply text-[16px]
     }
 }
