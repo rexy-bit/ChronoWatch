@@ -31,3 +31,18 @@ export interface MongooseCartType{
     items : CartSchema[];
     deliveryOption : DeliveryOption;
 }
+
+
+export interface Item{
+    _id : string;
+    name : string;
+    description : string;
+    stock : number;
+    rate : number;
+    category : string;
+    type : string;
+    price: number;
+    images : string[];
+    recommandationScore : number;
+    keyWords : string[];
+}

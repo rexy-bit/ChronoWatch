@@ -4,7 +4,8 @@ import cors from "cors"
 import { PORT } from "./config/env.js";
 import connectToDatabase from "./database/mongodb.js";
 import authRouter from "./routes/auth.routes.js";
-import userRouter from "./routes/user.routes.js";
+import userRouter from "./routes/user.routes.js";;
+import itemRouter from "./routes/item.routes.js";
 
 
 const app = express();
@@ -23,6 +24,7 @@ app.get('/', (req, res)=>res.send("Welcome to ChronoWatch"));
 
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/users', userRouter);
+app.use('/api/v1/items', itemRouter)
 
 
 
