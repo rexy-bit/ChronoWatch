@@ -5,6 +5,7 @@ import Home from './Pages/Home'
 import Header from './Components/HomeComponents/Header'
 import Profile from './Pages/Profile'
 import { AuthProvider } from './Contexts/AuthContexts'
+import { ItemsProvider } from './Contexts/ItemsContexts'
 
 function App() {
   
@@ -14,6 +15,7 @@ function App() {
   return(
     
     <AuthProvider>
+      <ItemsProvider>
      <Routes>
       
 
@@ -35,6 +37,7 @@ function App() {
         
      </Routes>
 
+        </ItemsProvider>
      </AuthProvider>
   )
 }

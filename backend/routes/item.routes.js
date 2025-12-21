@@ -6,12 +6,14 @@ const itemRouter = Router();
 
 itemRouter.get('/', getAllItems);
 
+itemRouter.get('/men', getMen);
+
+itemRouter.get('/women', getWomen);
+
 itemRouter.post('/search', searchItem);
 
 itemRouter.get('/:id', getItem);
 
-itemRouter.get('/men', getMen);
 
-itemRouter.get('/women', getWomen);
 
 export default itemRouter;

@@ -93,7 +93,7 @@ export const getMen = async(req , res , next) => {
 
     try{
 
-        const menCat = await Item.find({category : "men"});
+        const menCat = await Item.find({category : "Men"});
 
         res.status(200).json({
             success : true,
@@ -110,7 +110,7 @@ export const getWomen = async(req , res, next) => {
 
     try{
 
-        const womenCat = await Item.find({category : "women"});
+        const womenCat = await Item.find({category : "Women"});
 
         res.status(200).json({
             success : true,

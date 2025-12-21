@@ -1,0 +1,36 @@
+const "items" = [
+    {
+        "name" : "Casio MTP-VD01D",
+        "description" : "The Casio MTP-VD01D is a classic and durable analog watch designed for everyday reliability, featuring a clean and easy-to-read dial with a date indicator positioned at 3 o’clock for added practicality. Built with a stainless steel band, it offers both strength and a refined look, secured comfortably with a triple fold clasp for enhanced safety on the wrist. With a water resistance of up to 50 meters, it is suitable for daily activities such as hand washing and light splashes. Powered by a long-lasting SR626SW battery, the watch provides an impressive battery life of up to 3 years, making the Casio MTP-VD01D a dependable choice that combines functionality, elegance, and low maintenance.",
+        "stock" : 8,
+        "rate" : 4,
+        "category" : "Men",
+        "type" : "Analog",
+        "images" : [
+            "https://res.cloudinary.com/dub4fhabm/image/upload/v1766355916/0cc14dea-c94f-4309-8c91-aac69eb96e03.png",
+            "https://res.cloudinary.com/dub4fhabm/image/upload/v1766355943/d34c3110-89e5-40ea-9f03-d164a86e5535.png",
+            "https://res.cloudinary.com/dub4fhabm/image/upload/v1766355982/b904dbcd-b320-42fd-bbe4-8b15fed13866.png"
+        ],
+        "price" : 11500,
+        "recommendationScore" : 0,
+           "keyWords": [
+    "Casio",
+    "Casio watch",
+    "MTP-VD01D",
+    "analog watch",
+    "men watch",
+    "stainless steel band",
+    "silver watch",
+    "classic watch",
+    "date display",
+    "date indicator 3 o'clock",
+    "50m water resistant",
+    "everyday watch",
+    "triple fold clasp",
+    "durable watch",
+    "3 year battery life",
+    "SR626SW battery",
+    "Casio analog watch"
+  ]
+    }
+]
