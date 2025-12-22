@@ -7,7 +7,17 @@ export const getAllItems = async(req , res , next) => {
 
     try{
 
-        const items = await Item.find();
+        const {category, type, brand} = req.body;
+
+        const filterData = {
+
+        }
+
+        if(category && category.trim() !== "") filterData.category = category;
+        if(type && type.trim() !== "") filterData.type = type;
+        if(brand && brand.trim() !== "") filterData.brand = brand;
+
+        const items = await Item.find(filterData);
 
         res.status(200).json({
             success :true,
@@ -42,6 +52,7 @@ export const searchItem = async(req , res , next)  => {
             $or : [
                 {name : regex},
                 {categorie : regex},
+                {brand : regex},
                 {keyWords : {$in : [regex]}}
             ]
         });

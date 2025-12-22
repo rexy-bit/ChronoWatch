@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import Home from './Pages/Home'
@@ -6,6 +5,7 @@ import Header from './Components/HomeComponents/Header'
 import Profile from './Pages/Profile'
 import { AuthProvider } from './Contexts/AuthContexts'
 import { ItemsProvider } from './Contexts/ItemsContexts'
+import Store from './Pages/Store'
 
 function App() {
   
@@ -34,6 +34,12 @@ function App() {
           </>
         }/>
 
+        <Route path='/store' element={
+          <>
+          <Header/>
+          <Store/>
+          </>
+        }/>
         
      </Routes>
 

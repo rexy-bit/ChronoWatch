@@ -10,6 +10,13 @@ const itemSchema = new mongoose.Schema({
         maxLength : 200,
         trim : true
     },
+    brand : {
+        type: String,
+        required : [true, "brand name is required"],
+        minLength : 1,
+        maxLength : 100,
+        trim : true
+    },
     description : {
         type : String,
         required : [true, "Watch Description is required"],

@@ -45,4 +45,12 @@ export interface Item{
     images : string[];
     recommandationScore : number;
     keyWords : string[];
+    brand: string;
+}
+
+
+export interface FilterData{
+    category : string;
+    brand : string;
+    type : string;
 }

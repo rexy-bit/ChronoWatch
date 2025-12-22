@@ -32,7 +32,9 @@ const Header = () => {
                <Link to='/' className="linkNav" style={{fontWeight : location.pathname === "/" ? "900" : "400",
                 borderBottom : location.pathname === "/" ? "2px solid black" : "none"
                }}>Home</Link>
-               <Link to="/store" className="linkNav">Store</Link>
+               <Link to="/store" className="linkNav" style={{fontWeight : location.pathname === "/store" ? "900" : "400",
+                borderBottom : location.pathname === "/store" ? "2px solid black" : "none"
+               }}>Store</Link>
                <Link to="/cart" className="linkNav">Cart</Link>
                <Link to="/orders" className="linkNav">Orders</Link>
                <Link to="/profile" className="linkNav" style={{fontWeight : location.pathname === "/profile" ? "900" : "400",

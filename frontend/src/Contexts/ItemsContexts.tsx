@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import type { Item } from "./Types";
+import type { FilterData, Item } from "./Types";
 
 
 
@@ -18,7 +18,8 @@ interface ItemsContextType{
     errorItem : boolean;
     loadingMen : boolean;
     loadingWomen : boolean;
-
+    filterData : FilterData;
+    setFilterData : (fd : FilterData)=> void;
 }
 
 const ItemsContext = createContext<ItemsContextType | null>(null);
@@ -35,6 +36,20 @@ export const ItemsProvider = ({children} : {children : React.ReactNode}) => {
     const [errorItem, setErrorItem] = useState<boolean>(false);
     const [loadingMen, setLoadingMen] = useState(false);
     const [loadingWomen, setLoadingWomen] = useState(false);
+
+    const [filterData, setFilterData] = useState(()=>{
+        const saved = localStorage.getItem('filterData');
+
+        return saved ? JSON.parse(saved) : {
+            category : "",
+            type : "",
+            brand : ""
+        };
+    });
+
+    useEffect(()=>{
+        localStorage.setItem('filterData', JSON.stringify(filterData));
+    }, []);
     
     const getItems = async() => {
 
@@ -43,9 +58,11 @@ export const ItemsProvider = ({children} : {children : React.ReactNode}) => {
         try{
 
             const res = await fetch("http://localhost:5000/api/v1/items/", {
+                method : "POST",
                 headers : {
                     "Content-Type" : "application/json"
-                }
+                },
+                body : JSON.stringify({category : filterData.category, type : filterData.type, brand : filterData.brand})
             });
 
             const data = await res.json();
@@ -163,7 +180,7 @@ export const ItemsProvider = ({children} : {children : React.ReactNode}) => {
 
     useEffect(()=>{
         getItems();
-    }, []);
+    }, [filterData]);
 
     useEffect(()=>{
         getMen();
@@ -174,7 +191,7 @@ export const ItemsProvider = ({children} : {children : React.ReactNode}) => {
     }, []);
 
     return(
-        <ItemsContext.Provider value={{items, error, errorItem, menItems, womenItems, loadingItems, loadingMen, loadingWomen, itemDetails, getItems, getItem, getMen, getWomen, setItemDetails}}>
+        <ItemsContext.Provider value={{items, error, errorItem, menItems, womenItems, loadingItems, loadingMen, loadingWomen, itemDetails, getItems, getItem, getMen, getWomen, setItemDetails, filterData, setFilterData}}>
             {children}
         </ItemsContext.Provider>
     )

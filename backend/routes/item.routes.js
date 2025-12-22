@@ -4,7 +4,7 @@ import { getAllItems, getItem, getMen, getWomen, searchItem } from "../controlle
 
 const itemRouter = Router();
 
-itemRouter.get('/', getAllItems);
+itemRouter.post('/', getAllItems);
 
 itemRouter.get('/men', getMen);
 
